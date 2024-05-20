@@ -1,0 +1,11 @@
+/* Custom CSS for additional styles */
+.car-icon {
+  margin-right: 8px;
+}
+body{
+    background-color: pink;
+}
+
+nav {
+    background-color: white;
+}
