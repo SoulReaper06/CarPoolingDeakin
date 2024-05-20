@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deakin Carpool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+            <h1>Deakin Carpool</h1>
+        </div>
+        <nav>
+            <a href="#">Search</a>
+            <a href="#">Publish a Ride</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <form id="rideForm">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" value="Box Hill" readonly>
+                
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" value="Deakin University" readonly>
+                
+                <label for="passengers">Passengers:</label>
+                <input type="number" id="passengers" name="passengers" value="4" readonly>
+                
+                <button type="submit">Publish a Ride</button>
+            </form>
+        </div>
+        <div class="cityscape">
+            <img src="cityscape.png" alt="Cityscape">
+        </div>
+        <div class="car-image">
+            <img src="car-image.png" alt="Car">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
