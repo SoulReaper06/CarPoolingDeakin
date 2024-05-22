@@ -1,0 +1,29 @@
+<header class="bg-white shadow-sm">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <i class="fas fa-car car-icon"></i>
+                <span class="font-weight-bold text-dark">Deakin Car Pooling</span>
+            </div>
+            <div class="col">
+                <nav class="nav justify-content-end">
+                    <a class="nav-link" href="#" id="publish-ride-btn">Publish Ride <i class="fas fa-plus-circle"></i></a>
+                    <a class="nav-link" href="#">Profile <i class="fas fa-user"></i></a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/edit-profile">Edit Profile <i class="fas fa-user-edit"></i></a>
+                            <div class="dropdown-divider"></div>
+                            <form action="/logout" method="POST">
+                                <button type="submit" class="dropdown-item">Logout <i class="fas fa-sign-out-alt"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

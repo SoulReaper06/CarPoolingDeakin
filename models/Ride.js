@@ -1,34 +1,14 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const rideSchema = new mongoose.Schema({
-    date: {
-        type: Date,
-        required: true
-    },
-    time: {
-        type: String,
-        required: true
-    },
-    destination: {
-        type: String,
-        required: true
-    },
-    startingLocation: {
-        type: String,
-        required: true
-    },
-    cost: {
-        type: Number,
-        required: true
-    },
-    seats: {
-        type: Number,
-        required: true
-    },
-    user: {
-        type: String,
-        required: true
-    }
+const rideSchema = new Schema({
+    date: String,
+    time: String,
+    destination: String,
+    startingLocation: String,
+    cost: Number,
+    seats: Number,
+    userId: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Ride = mongoose.model('Rides', rideSchema);

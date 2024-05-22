@@ -4,123 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deakin Car Pooling</title>
+    <title>Profile - Deakin Car Pooling</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="/style.css">
-    <style>
-        .card-custom {
-            border: 1px solid #e3e3e3;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card-custom:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-custom .card-body {
-            padding: 1.5rem;
-        }
-
-        .card-custom .card-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-custom .card-text {
-            margin-bottom: 0.5rem;
-        }
-    </style>
 </head>
 
 <body>
-    <header class="bg-white shadow-sm">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <i class="fas fa-car car-icon"></i>
-                    <span class="font-weight-bold text-dark">Deakin Car Pooling</span>
-                </div>
-                <div class="col">
-                    <nav class="nav justify-content-end">
-                        <form class="form-inline">
-                            <input class="form-control mr-2" type="text" placeholder="Search...">
-                        </form>
-                        <a class="nav-link" href="#" id="publish-ride-btn">Publish Ride <i
-                                class="fas fa-plus-circle"></i></a>
-                        <a class="nav-link" href="#">Profile <i class="fas fa-user"></i></a>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cog"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Edit Profile <i class="fas fa-user-edit"></i></a>
-                                <div class="dropdown-divider"></div>
-                                <form action="/logout" method="POST">
-                                    <button type="submit" class="dropdown-item">Logout <i
-                                            class="fas fa-sign-out-alt"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container mt-4">
-        <form id="publish-ride-form" action="/publish-ride" method="POST" style="display: none;">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="date">Date:</label>
-                    <input type="date" class="form-control" id="date" name="date" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="time">Starting Time:</label>
-                    <input type="time" class="form-control" id="time" name="time" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="destination">Destination:</label>
-                    <input type="text" class="form-control" id="destination" name="destination" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="starting-location">Starting Location:</label>
-                    <input type="text" class="form-control" id="starting-location" name="startingLocation" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="cost">Cost:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost in $"
-                            required>
+    <%- include('partials/navbar.ejs') %>
+        <div class="container mt-4">
+            <form id="publish-ride-form" action="/publish-ride" method="POST" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="time">Starting Time:</label>
+                        <input type="time" class="form-control" id="time" name="time" required>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="seats">Seats Available:</label>
-                    <input type="number" class="form-control" id="seats" name="seats" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="destination">Destination:</label>
+                        <input type="text" class="form-control" id="destination" name="destination" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="starting-location">Starting Location:</label>
+                        <input type="text" class="form-control" id="starting-location" name="startingLocation" required>
+                    </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cost">Cost:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost in $"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="seats">Seats Available:</label>
+                        <input type="number" class="form-control" id="seats" name="seats" required>
+                    </div>
+                </div>
+                <input type="hidden" id="user" name="user" value="<%= user.email %>">
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </form>
+            <div id="rides-list" class="mt-4">
+                <h2>Published Rides</h2>
             </div>
-            <input type="hidden" id="user" name="user" value="<%= user.email %>">
-            <button type="submit" class="btn btn-primary">Publish</button>
-        </form>
-
-        <div id="rides-list" class="mt-4">
-            <h2>Published Rides</h2>
         </div>
-    </main>
+        <!-- Example Ride Card -->
+        <div class="container mt-4">
+            <% if (rides.length===0) { %>
+                <p>No rides available.</p>
+                <% } else { %>
+                    <% rides.forEach(ride=> { %>
+                        <div class="card card-custom mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= ride.destination %>
+                                </h5>
+                                <p class="card-text">Posted by: <%= ride.email %></p>
+                                <p class="card-text">Date: <%= ride.date %>
+                                </p>
+                                <p class="card-text">Time: <%= ride.time %>
+                                </p>
+                                <p class="card-text">Starting Location: <%= ride.startingLocation %>
+                                </p>
+                                <p class="card-text">Cost: $<%= ride.cost %>
+                                </p>
+                                <p class="card-text">Seats: <%= ride.seats %>
+                                </p>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary">Book</button>
+                                    <% if (ride.userId._id.toString() === user._id) { %>
+                                        <form action="/delete-ride/<%= ride._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                            <% } %>
 
+        </div>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -130,37 +104,7 @@
             document.getElementById('publish-ride-form').style.display = 'block';
             document.getElementById('rides-list').classList.add('mt-4');
         });
-
-        // Fetch rides from server
-        async function fetchRides() {
-            const response = await fetch('/rides');
-            const rides = await response.json();
-            return rides;
-        }
-
-        // Load published rides on page load
-        window.onload = async function () {
-            const ridesList = document.getElementById('rides-list');
-            const rides = await fetchRides();
-            rides.forEach(ride => {
-                const rideCard = document.createElement('div');
-                rideCard.className = 'card card-custom mb-3';
-                rideCard.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${ride.destination}</h5>
-                        <p class="card-text">Date: ${ride.date.split('T')[0]}</p>
-                        <p class="card-text">Time: ${ride.time}</p>
-                        <p class="card-text">Cost: $${ride.cost}</p>
-                        <p class="card-text">Seats Available: ${ride.seats}</p>
-                        <p class="card-text">Starting Location: ${ride.startingLocation}</p>
-                        <p class="card-text">Published by: ${ride.user}</p>
-                    </div>
-                `;
-                ridesList.appendChild(rideCard);
-            });
-        }
     </script>
-
 </body>
 
 </html>
