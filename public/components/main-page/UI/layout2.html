@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deakin Car Pooling</title>
+    <link rel="stylesheet" href="layout2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="car-icon.png" alt="Car Icon" class="car-icon">
+            <span>Deakin Car Pooling</span>
+        </div>
+        <nav>
+            <ul>
+                <li><input type="text" placeholder="Search..."></li>
+                <li><a href="#">Publish Ride</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="form-group">
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" placeholder="Starting location">
+        </div>
+        <div class="form-group">
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" placeholder="Destination">
+        </div>
+        <div class="form-group">
+            <label for="seats">Number of seats:</label>
+            <input type="number" id="seats" name="seats" placeholder="Number of seats">
+        </div>
+    </main>
+    <footer>
+        <button class="publish-btn">Publish Ride</button>
+    </footer>
+</body>
+</html>
