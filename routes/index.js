@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const profileController = require('../controllers/profileController');
 const rideController = require('../controllers/rideController');
 
+
 // Handle sign-up form submission
 router.post('/signup', authController.signup);
 
@@ -19,6 +20,8 @@ router.post('/delete-ride/:id', rideController.deleteRide);
 router.get('/edit-profile', (req, res) => {
   res.render('userprofile', { user: req.session.user }); // Assuming you pass user data to profile
 });
+
+router.post('/update-profile', profileController.updateUser);
 
 // Handle logout
 router.post('/logout', (req, res) => {

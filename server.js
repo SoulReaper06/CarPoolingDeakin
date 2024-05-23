@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser');
 const path = require('path');
 const indexRouter = require('./routes/index');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,7 +22,10 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'your_secret_key',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  store: MongoStore.create({ 
+    mongoUrl: 'your_mongoDB_connection_string'
+})
 }));
 
 // Set the view engine and views directory
