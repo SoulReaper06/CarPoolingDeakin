@@ -8,7 +8,11 @@ const rideSchema = new Schema({
     startingLocation: String,
     cost: Number,
     seats: Number,
-    userId: { type: Schema.Types.ObjectId, ref: 'User' }
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    passengers: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, name: String }]
 });
 
 const Ride = mongoose.model('Rides', rideSchema);

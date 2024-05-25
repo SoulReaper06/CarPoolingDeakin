@@ -3,6 +3,7 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const profileController = require('../controllers/profileController');
 const rideController = require('../controllers/rideController');
+const paymentController = require('../controllers/paymentController');
 
 
 // Handle sign-up form submission
@@ -15,7 +16,13 @@ router.get('/profile', rideController.getAllRides);
 
 router.post('/publish-ride', rideController.createRide);
 
+router.get('/book-ride/:rideId', rideController.bookRide);
+
 router.post('/delete-ride/:id', rideController.deleteRide);
+
+router.post('/create-checkout-session', paymentController.confirmPayment);
+
+router.get('/payment-success', paymentController.successPayment);
 
 router.get('/edit-profile', (req, res) => {
   res.render('userprofile', { user: req.session.user }); // Assuming you pass user data to profile

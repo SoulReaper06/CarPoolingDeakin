@@ -34,6 +34,20 @@ const createRide = async (req, res) => {
     }
 };
 
+const bookRide = async (req, res) => {
+  try {
+      const userId = req.session.userId;
+      const rideId = req.params.rideId;
+      const ride = await Ride.findById(rideId).populate('userId'); // Assuming 'userId' references the driver
+      if (!ride) {
+          return res.status(404).send('Ride not found');
+      }
+      res.render('confirm-booking', {  user: req.session.user, ride : ride  });
+  } catch (error) {
+      res.status(500).send('Server error');
+  }
+};
+
 const deleteRide = async (req, res) => {
   try {
       const rideId = req.params.id;
@@ -56,5 +70,6 @@ const deleteRide = async (req, res) => {
 module.exports = {
   getAllRides,
   createRide,
+  bookRide,
   deleteRide,
 };

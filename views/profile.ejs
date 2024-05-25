@@ -81,8 +81,19 @@
                                 </p>
                                 <p class="card-text">Seats: <%= ride.seats %>
                                 </p>
+                                <p class="card-text">Passengers:
+                                    <% if (ride.passengers && ride.passengers.length > 0) { %>
+                                    <ul>
+                                        <% ride.passengers.forEach(passenger => { %>
+                                            <li><%= passenger.name %></li>
+                                        <% }); %>
+                                    </ul>
+                                    <% } else { %>
+                                    <p>No passengers yet</p>
+                                    <% } %>
+                                </p>
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-primary">Book</button>
+                                    <button class="btn btn-primary" onclick="location.href='/book-ride/<%= ride._id %>'">Book</button>
                                     <% if (ride.userId._id.toString() === user._id) { %>
                                         <form action="/delete-ride/<%= ride._id %>" method="POST">
                                             <button type="submit" class="btn btn-danger">Delete</button>
